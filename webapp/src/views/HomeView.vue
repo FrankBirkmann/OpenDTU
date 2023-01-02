@@ -45,7 +45,7 @@
                                         }} W | </template>{{ formatNumber(inverter.limit_relative, 0) }} %
                                     </div>
                                     <div style="padding-right: 2em;">
-                                        {{ $t('home.DataAge') }}{{ inverter.data_age }} {{ $t('home.Seconds') }}
+                                        {{ $t('home.DataAge') }} {{ $t('home.Seconds', {'val': inverter.data_age }) }}
                                         <template v-if="inverter.data_age > 300">
                                             / {{ calculateAbsoluteTime(inverter.data_age) }}
                                         </template>
@@ -662,9 +662,8 @@ export default defineComponent({
                 )
         },
         calculateAbsoluteTime(lastTime: number): string {
-            const userLocale = navigator.language;
             const date = new Date(Date.now() - lastTime * 1000);
-            return date.toLocaleString(userLocale)
+            return this.$d(date, 'datetime');
         }
     },
 });

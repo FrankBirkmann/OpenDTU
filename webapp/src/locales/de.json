@@ -31,7 +31,7 @@
         "1004": "Fehler beim interpretieren der Daten!",
         "1005": "Benötigte Werte fehlen!",
         "2001": "Die Seriennummer darf nicht 0 sein!",
-        "2002": "Das Abfrage Interval muss größer als 0 sein!",
+        "2002": "Das Abfraginterval muss größer als 0 sein!",
         "2003": "Ungültige Sendeleistung angegeben!",
         "3001": "Nichts gelöscht!",
         "3002": "Konfiguration zurückgesetzt. Starte jetzt neu...",
@@ -88,8 +88,8 @@
         "LiveData": "Live Daten",
         "SerialNumber": "Seriennummer: ",
         "CurrentLimit": "Aktuelles Limit: ",
-        "DataAge": "Alter der Daten: ",
-        "Seconds": "Sekunden",
+        "DataAge": "letzte Aktualisierung: ",
+        "Seconds": "vor {val} Sekunden",
         "ShowSetInverterLimit": "Zeige / Setze Wechselrichterlimit",
         "TurnOnOff": "Schalte Wechselrichter ein oder aus",
         "ShowInverterInfo": "Zeige Wechselrichter Informationen",
@@ -267,7 +267,7 @@
     },
     "invertertotalinfo": {
         "TotalYieldTotal": "Gesamtertrag Insgesamt",
-        "TotalYieldDay": "Täglicher Gesamtertrag",
+        "TotalYieldDay": "Gesamtertrag Heute",
         "TotalPower": "Gesamtleistung"
     },
     "inverterchannelproperty": {
@@ -275,7 +275,7 @@
         "Voltage": "Spannung",
         "Current": "Strom",
         "Power DC": "DC Leistung",
-        "YieldDay": "Täglicher Ertrag",
+        "YieldDay": "Tagesertrag",
         "YieldTotal": "Gesamtertrag",
         "Frequency": "Frequenz",
         "Temperature": "Temperatur",
@@ -298,7 +298,7 @@
         "DtuConfiguration": "DTU Konfiguration",
         "Serial": "Seriennummer:",
         "SerialHint": "Sowohl der Wechselrichter als auch die DTU haben eine Seriennummer. Die DTU-Seriennummer wird beim ersten Start zufällig generiert und muss normalerweise nicht geändert werden.",
-        "PollInterval": "Abfrage Interval:",
+        "PollInterval": "Abfrageinterval:",
         "Seconds": "Sekunden",
         "PaLevel": "Sendeleistung:",
         "PaLevelHint": "Stellen Sie sicher, dass Ihre Stromversorgung stabil genug ist, bevor Sie die Sendeleistung erhöhen.",
@@ -315,7 +315,7 @@
         "RepeatPassword": "Passwort wiederholen:",
         "PasswordHint": "<b>Hinweis:</b> Das Administrator-Passwort wird für den Zugriff auf die Webschnittstelle (Benutzer 'admin'), aber auch für die Verbindung mit dem Gerät im AP-Modus verwendet. Es muss 8..64 Zeichen lang sein.",
         "Permissions": "Berechtigungen",
-        "ReadOnly": "Nur-Lese-Zugriff auf die Weboberfläche zulassen",
+        "ReadOnly": "Nur-Lese-Zugriff auf die Weboberfläche ohne Passwort zulassen",
         "Save": "@:dtuadmin.Save"
     },
     "ntpadmin": {
@@ -463,6 +463,6 @@
         "TimeSync": "Die Uhr wurde noch nicht synchronisiert. Ohne eine korrekt eingestellte Uhr werden keine Anfragen an den Wechselrichter gesendet. Dies ist kurz nach dem Start normal. Nach einer längeren Laufzeit (>1 Minute) bedeutet es jedoch, dass der NTP-Server nicht erreichbar ist.",
         "TimeSyncLink": "Bitte überprüfen Sie Ihre Zeiteinstellungen.",
         "DefaultPassword": "Sie verwenden das Standardpasswort für die Weboberfläche und den Notfall Access Point. Dies ist potenziell unsicher.",
-        "DefaultPasswortLink": "Bitte ändern Sie das Passwort."
+        "DefaultPasswordLink": "Bitte ändern Sie das Passwort."
     }
 }
