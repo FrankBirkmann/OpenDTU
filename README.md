@@ -24,6 +24,7 @@ Like to show your own build? Just send me a Pull Request.
 * Hoymiles HM-1000
 * Hoymiles HM-1200
 * Hoymiles HM-1500
+* Solenso SOL-H400
 * TSUN TSOL-M350 (Maybe depending on firmware/serial number on the inverter)
 * TSUN TSOL-M800 (Maybe depending on firmware/serial number on the inverter)
 * TSUN TSOL-M1600 (Maybe depending on firmware/serial number on the inverter)
@@ -31,7 +32,7 @@ Like to show your own build? Just send me a Pull Request.
 **TSUN compatibility remark:**
 Compatibility with OpenDTU seems to be related to serial numbers. Current findings indicate that TSUN inverters with a serial number starting with "11" are supported, whereby inverters with a serial number starting with "10" are not.
 Firmware version seems to play not a significant role and cannot be read from the stickers. For completeness, the following firmware version have been reported to work with OpenDTU:
-* v1.0.10 TSOL-M800 (DE)
+* v1.0.8, v1.0.10 TSOL-M800 (DE)
 * v1.0.12 TSOL-M1600
 
 ## Features for end users
@@ -50,7 +51,8 @@ Firmware version seems to play not a significant role and cannot be read from th
 * Time zone support
 * Ethernet support
 * Prometheus API endpoint (/api/prometheus/metrics)
-* English and german web interface
+* English, german and french web interface
+* Displays (SSD1306, SH1106, PCD8544)
 
 ## Features for developers
 * The microcontroller part
@@ -113,6 +115,7 @@ This can be achieved by copying one of the [env:....] sections from 'platformio.
 -DHOYMILES_PIN_CS=5
 ```
 It is recommended to make all changes only in the  'platformio_override.ini', this is your personal copy.
+You can also change  the pins by creating a custom [device profile](docs/DeviceProfiles.md).
 
 ## Flashing and starting up
 ### with Visual Studio Code
@@ -125,6 +128,7 @@ It is recommended to make all changes only in the  'platformio_override.ini', th
     * upload_port
     * monitor_port
 * Select the arrow button in the blue bottom status bar (PlatformIO: Upload) to compile and upload the firmware. During the compilation, all required libraries are downloaded automatically.
+* Under Linux, if the upload fails with error messages "Could not open /dev/ttyUSB0, the port doesn't exist", you can check via ```ls -la /dev/tty*``` to which group your port belongs to, and then add your user this group via ```sudo adduser <yourusername> dialout```
 * There are two videos showing these steps:
     * [Git Clone and compilation](https://youtu.be/9cA_esv3zeA)
     * [Full installation and compilation](https://youtu.be/xs6TqHn7QWM)
@@ -177,6 +181,9 @@ esptool.py --port /dev/ttyUSB0 --chip esp32 --before default_reset --after hard_
 
 #### Flash with ESP_Flasher (Windows)
 Users report that [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher/releases/) is suitable for flashing OpenDTU on Windows.
+
+#### Flash with [ESP_Flasher](https://espressif.github.io/esptool-js/) - web version
+It is also possible to flash it via the web tools which might be more convenient and is platformindependent.
 
 ## First configuration
 * After the initial flashing of the microcontroller, an Access Point called "OpenDTU-*" is opened. The default password is "openDTU42".
